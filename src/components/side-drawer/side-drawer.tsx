@@ -42,9 +42,9 @@ export class SideDrawer {
       );
     }
 
-    return (
+    return [
 
-      
+      <div class="backdrop" />,
       
       <aside>
         <header>
@@ -61,6 +61,6 @@ export class SideDrawer {
         </section>
         <main>{mainContent}</main>
       </aside>
-    );
+    ];
   }
 }
