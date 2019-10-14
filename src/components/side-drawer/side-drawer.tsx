@@ -1,22 +1,27 @@
-import { Component, Prop, State } from '@stencil/core';
+import { Component, Prop, State, Method } from "@stencil/core";
 
 @Component({
-  tag: 'uc-side-drawer',
-  styleUrl: './side-drawer.css',
+  tag: "uc-side-drawer",
+  styleUrl: "./side-drawer.css",
   shadow: true
 })
 export class SideDrawer {
   @State() showContactInfo: boolean = false;
 
   @Prop({ reflectToAttr: true }) title: string;
-  @Prop({ reflectToAttr: true, mutable: true }) open: boolean;
+  @Prop({ reflectToAttr: true, mutable: true }) opened: boolean;
 
-  onCloseDrawer(): void {
-    this.open = false;
+  onCloseDrawer() {
+    this.opened = false;
   }
 
   private onContentChange(content: string) {
-    this.showContactInfo = content === 'contact';
+    this.showContactInfo = content === "contact";
+  }
+
+  @Method()
+  open() {
+    this.opened = true;
   }
 
   render() {
@@ -30,9 +35,7 @@ export class SideDrawer {
             <li>Phone: 49802384032</li>
             <li>
               E-Mail:
-              <a href="mailto:something@something.com">
-                something@something.com
-              </a>
+              <a href="mailto:something@something.com">something@something.com</a>
             </li>
           </ul>
         </div>
@@ -40,22 +43,19 @@ export class SideDrawer {
     }
 
     return (
+
+      
+      
       <aside>
         <header>
           <h1>{this.title}</h1>
           <button onClick={this.onCloseDrawer.bind(this)}>X</button>
         </header>
         <section id="tabs">
-          <button
-            class={!this.showContactInfo ? 'active' : ''}
-            onClick={this.onContentChange.bind(this, 'nav')}
-          >
+          <button class={!this.showContactInfo ? "active" : ""} onClick={this.onContentChange.bind(this, "nav")}>
             Navigation
           </button>
-          <button
-            class={this.showContactInfo ? 'active' : ''}
-            onClick={this.onContentChange.bind(this, 'contact')}
-          >
+          <button class={this.showContactInfo ? "active" : ""} onClick={this.onContentChange.bind(this, "contact")}>
             Contact
           </button>
         </section>
