@@ -21,9 +21,12 @@ header {
 }
 
 header h1 {
-  font-size: 1.5rem;
-  color: white;
-  margin: 0;
+  color: transparent;
+  background: text rgb(102, 102, 102);
+  text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+  --darkreader-inline-color:transparent;
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor:#3d4043;
 }
 
 header button {
