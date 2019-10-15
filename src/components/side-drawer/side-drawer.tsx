@@ -37,7 +37,13 @@ export class SideDrawer {
               E-Mail:
               <a href="mailto:something@something.com">something@something.com</a>
             </li>
+            <li>First: Ivan</li>
+            <li>
+              Website
+              <a href="https://ivanrendon.dev">Portfolio Website</a>
+            </li>
           </ul>
+          
         </div>
       );
     }
